@@ -1305,12 +1305,22 @@ OUTPUT FORMAT (JSON ONLY, NO PROSE OUTSIDE THE JSON):
   ]
 }
 
+Length caps (KEEP RESPONSES TIGHT — output must fit in 8000 tokens including all fields):
+- summary.headline: ≤ 18 words
+- summary.body: ≤ 60 words
+- fits.*.verdict: ≤ 25 words
+- fits.*.next_move: ≤ 20 words
+- fields[].comment: ≤ 30 words
+- fields[].next_move: ≤ 20 words
+- cascades[]: ≤ 60 words each, max 3 entries
+
 Rules:
 - Be honest about gaps. Don't soften so much that the diagnosis disappears. The founder wants the truth, kindly told.
 - Every amber and red needs a "next_move". Greens don't.
-- If a field is empty, status: amber, comment: "Worth filling in — this is where founders often discover something they hadn't articulated." next_move: a question they could ask themselves to surface it.
+- If a field is empty, status: amber, comment: "Worth filling in — founders often discover something they hadn't articulated." next_move: a question they could ask themselves.
 - Plain English. No "ICP", "PMF", "GTM" without unpacking. Spell things out.
-- Output ONLY valid JSON. No markdown fences, no prose before or after.`;
+- Output ONLY valid JSON. No markdown fences, no prose before or after, no comments inside JSON.
+- Escape all newlines as \\n within strings. No literal newlines inside JSON string values.`;
 
   // Read API endpoint from meta tag (set by deployment)
   function getApiEndpoint() {
@@ -1397,8 +1407,71 @@ Rules:
     const start = cleaned.indexOf('{');
     const end = cleaned.lastIndexOf('}');
     if (start >= 0 && end > start) cleaned = cleaned.slice(start, end + 1);
-    try { return JSON.parse(cleaned); }
-    catch (e) { throw new Error('AI returned non-JSON. ' + e.message); }
+
+    // First try: parse as-is
+    try { return JSON.parse(cleaned); } catch (e) { /* fall through */ }
+
+    // Repair attempt: response was likely truncated mid-element. Walk back to the
+    // last complete top-level field and close balanced brackets.
+    const repaired = repairTruncatedJson(cleaned);
+    if (repaired) {
+      try { return JSON.parse(repaired); } catch (e) { /* fall through */ }
+    }
+
+    throw new Error('AI returned non-JSON. The response may have been truncated. Try Run again.');
+  }
+
+  function repairTruncatedJson(s) {
+    // Walk char-by-char, tracking string state and bracket depth. When we hit
+    // the end mid-string or mid-element, truncate to the last complete element
+    // and close all open brackets.
+    let depth = 0;
+    const stack = [];
+    let inString = false;
+    let escape = false;
+    let lastSafe = -1; // index after the last complete top-level element
+
+    for (let i = 0; i < s.length; i++) {
+      const c = s[i];
+      if (escape) { escape = false; continue; }
+      if (c === '\\' && inString) { escape = true; continue; }
+      if (c === '"') { inString = !inString; continue; }
+      if (inString) continue;
+
+      if (c === '{' || c === '[') { stack.push(c); depth++; }
+      else if (c === '}' || c === ']') {
+        stack.pop(); depth--;
+        if (depth === 1) lastSafe = i + 1; // we just closed a top-level entry
+      }
+      else if (c === ',' && depth === 1) {
+        lastSafe = i; // safe point: between top-level entries
+      }
+    }
+
+    // If we ended cleanly, no repair needed
+    if (depth === 0 && !inString) return s;
+    if (lastSafe < 0) return null;
+
+    // Truncate to the last safe point and close balanced brackets
+    let head = s.slice(0, lastSafe);
+    // Strip trailing comma if present
+    head = head.replace(/,\s*$/, '');
+
+    // Re-walk to figure out what's still open
+    let openStack = [];
+    let str = false; let esc = false;
+    for (let i = 0; i < head.length; i++) {
+      const c = head[i];
+      if (esc) { esc = false; continue; }
+      if (c === '\\' && str) { esc = true; continue; }
+      if (c === '"') { str = !str; continue; }
+      if (str) continue;
+      if (c === '{') openStack.push('}');
+      else if (c === '[') openStack.push(']');
+      else if (c === '}' || c === ']') openStack.pop();
+    }
+    while (openStack.length) head += openStack.pop();
+    return head;
   }
 
   // ------- Modal -------
