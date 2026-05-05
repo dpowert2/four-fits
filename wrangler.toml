@@ -1,0 +1,9 @@
+name = "four-fits-api"
+main = "worker.js"
+compatibility_date = "2025-05-01"
+
+# After `wrangler deploy`, the Worker URL is printed in the output.
+# Paste that URL into the <meta name="four-fits-api"> tag in index.html.
+#
+# Set the API key as a secret (NOT in this file):
+#   wrangler secret put ANTHROPIC_API_KEY
