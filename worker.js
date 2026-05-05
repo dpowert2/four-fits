@@ -18,7 +18,7 @@ const ALLOWED_ORIGINS = [
 ];
 
 const MODEL = 'claude-sonnet-4-5-20250929'; // current Sonnet — swap if needed
-const MAX_TOKENS = 4000;
+const MAX_TOKENS = 8000;
 
 function corsHeaders(origin) {
   const allow = ALLOWED_ORIGINS.includes(origin) ? origin : ALLOWED_ORIGINS[0];
