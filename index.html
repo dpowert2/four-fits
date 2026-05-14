@@ -43,8 +43,23 @@
   .hero-title em{font-style:normal;color:var(--accent);}
   .hero-sub{font-size:18px;line-height:1.5;color:var(--text-body);max-width:760px;}
 
+  /* INTAKE CARD */
+  .intake-card{background:var(--surface);border-radius:var(--radius-xl);box-shadow:var(--shadow-md);padding:40px 48px 36px;margin:24px 0 0;position:relative;overflow:hidden;}
+  .intake-card .card-stripe{background:linear-gradient(90deg,var(--data-blue),var(--data-coral));}
+  .intake-thread{display:flex;flex-direction:column;gap:12px;margin-bottom:18px;}
+  .intake-msg{padding:14px 18px;border-radius:var(--radius-md);font-size:14px;line-height:1.55;max-width:82%;}
+  .intake-msg.user{background:var(--text-primary);color:#FFF;align-self:flex-end;border-bottom-right-radius:4px;}
+  .intake-msg.coach{background:var(--surface-soft);border:1px solid var(--border);color:var(--text-body);align-self:flex-start;border-bottom-left-radius:4px;}
+  .intake-msg-label{font-family:var(--mono);font-size:10px;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:6px;}
+  .intake-input-row{display:flex;gap:12px;align-items:flex-end;}
+  .intake-input-row textarea{flex:1;}
+  .intake-apply{margin-top:14px;padding:16px 20px;background:var(--success-light);border:1.5px solid var(--success);border-radius:var(--radius-md);display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;}
+  .intake-apply-text{font-size:13px;color:var(--text-body);flex:1;min-width:240px;}
+  .btn-success{background:var(--success);color:#FFF;}
+  .btn-success:hover{filter:brightness(1.08);}
+
   /* CASE STUDY BAR */
-  .case-bar{background:var(--surface);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);padding:18px 24px;margin:24px 0 0;display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
+  .case-bar{background:var(--surface);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);padding:18px 24px;margin:16px 0 0;display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
   .case-bar-label{font-family:var(--mono);font-size:11px;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.12em;}
   .case-bar-actions{display:flex;gap:8px;flex-wrap:wrap;}
 
@@ -96,20 +111,14 @@
   .chip-detail{display:block;font-size:11px;font-weight:500;color:var(--text-faint);margin-top:3px;}
   .chip.active .chip-detail{color:rgba(255,255,255,0.7);}
 
-  /* TIPS */
-  details.tip{margin-top:8px;}
-  details.tip summary{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:11px;font-weight:700;color:var(--text-muted);cursor:pointer;user-select:none;text-transform:uppercase;letter-spacing:0.08em;list-style:none;}
-  details.tip summary::-webkit-details-marker{display:none;}
-  details.tip summary::before{content:'+';font-size:14px;color:var(--accent);}
-  details.tip[open] summary::before{content:'–';}
-  details.tip summary:hover{color:var(--text-primary);}
-  .tip-body{margin-top:10px;padding:16px 18px;background:var(--surface-soft);border-radius:var(--radius-md);border:1px solid var(--border);}
-  .tip-line{display:flex;gap:10px;align-items:flex-start;font-size:13px;line-height:1.55;}
-  .tip-line+.tip-line{margin-top:10px;}
-  .tip-mark{font-weight:800;flex-shrink:0;width:16px;}
-  .tip-mark.good{color:var(--success);}
-  .tip-mark.bad{color:var(--danger);}
-  .tip-line .tip-text{color:var(--text-body);}
+  /* EXAMPLE LOADERS */
+  .ex-loaders{display:flex;align-items:center;gap:6px;margin-top:8px;flex-wrap:wrap;}
+  .ex-loaders-label{font-family:var(--mono);font-size:10px;font-weight:700;color:var(--text-faint);text-transform:uppercase;letter-spacing:0.08em;margin-right:2px;}
+  .ex-btn{font-family:var(--mono);font-size:10px;font-weight:700;padding:3px 10px;border-radius:var(--radius-pill);border:1px solid var(--border);background:var(--surface-soft);color:var(--text-muted);cursor:pointer;text-transform:uppercase;letter-spacing:0.06em;transition:all 0.12s;}
+  .ex-btn:hover{color:var(--text-primary);}
+  .ex-btn.weak:hover{color:var(--danger);border-color:var(--danger);}
+  .ex-btn.good:hover{color:var(--data-blue);border-color:var(--data-blue);}
+  .ex-btn.great:hover{color:var(--success);border-color:var(--success);}
 
   /* BUTTONS */
   .btn{display:inline-flex;align-items:center;gap:10px;padding:12px 22px;border-radius:var(--radius-pill);font-family:var(--font);font-size:13px;font-weight:600;cursor:pointer;border:none;transition:all 0.15s;background:var(--surface);color:var(--text-primary);box-shadow:var(--shadow-sm);}
@@ -238,6 +247,7 @@
     .verdict-row{grid-template-columns:repeat(2,1fr);}
     .box-grid{grid-template-columns:1fr;}
     .card{padding:36px 26px 28px;}
+    .intake-card{padding:32px 26px 28px;}
     .card-bignum{font-size:88px;right:18px;top:14px;opacity:0.7;}
     .card-title{font-size:30px;}
     .run-card{grid-template-columns:1fr;padding:36px 28px;gap:20px;}
@@ -245,6 +255,8 @@
     .cascade-card{padding:36px 28px;}
     .hero{padding:12px 4px 16px;}
     .conn-item{padding:18px 20px;}
+    .intake-msg{max-width:92%;}
+    .intake-input-row{flex-direction:column;align-items:stretch;}
   }
 </style>
 </head>
@@ -255,16 +267,30 @@
   <header class="hero">
     <div class="eyebrow">Bene Gesserit <span class="slash">//</span> Diagnostic Tool</div>
     <h1 class="hero-title">Four <em>Fits</em>.</h1>
-    <p class="hero-sub">A coaching diagnostic for early-stage propositions. Fill the four hypotheses — Market, Product, Channel, Model — and a coach walks every box and every connection between boxes, showing you where the joints align and where the model needs revisiting.</p>
+    <p class="hero-sub">A coaching diagnostic for early-stage propositions. Talk it through in plain words, or fill the four hypotheses directly — a coach walks every box and every connection between boxes, showing you where the joints align and where the model needs revisiting.</p>
   </header>
+
+  <!-- INTAKE -->
+  <section class="intake-card" id="card-intake">
+    <div class="card-stripe"></div>
+    <div class="card-eyebrow">Start here // In plain words</div>
+    <h2 class="card-title" style="font-size:32px;">Just tell me about it.</h2>
+    <p class="card-sub">No structure needed. Describe your idea the way you'd explain it to a friend — who it's for, the problem, how it might make money. I'll ask a few questions, then draft the four hypothesis cards for you to refine.</p>
+    <div class="intake-thread" id="intake-thread" style="display:none;"></div>
+    <div class="intake-input-row">
+      <textarea id="intake-input" rows="3" placeholder="e.g. I want to build something that helps small creative agencies pay their freelancers — right now it's a manual mess every month..."></textarea>
+      <button class="btn btn-accent" id="intake-send">Talk it through <span class="arrow">→</span></button>
+    </div>
+    <div id="intake-apply-slot"></div>
+  </section>
 
   <!-- CASE STUDY BAR -->
   <div class="case-bar">
-    <div class="case-bar-label">Not sure what good looks like?</div>
+    <div class="case-bar-label">Or see a worked example</div>
     <div class="case-bar-actions">
-      <button class="btn btn-ghost" id="btn-load-hiri">Load Hiri — a cascade failure</button>
-      <button class="btn btn-ghost" id="btn-load-reflo">Load Reflo — a strong fit</button>
-      <button class="btn btn-dark" id="btn-generate">Generate a random case study</button>
+      <button class="btn btn-ghost" id="btn-load-hiri">Hiri — a cascade failure</button>
+      <button class="btn btn-ghost" id="btn-load-reflo">Reflo — a strong fit</button>
+      <button class="btn btn-dark" id="btn-generate">Generate a random one</button>
       <button class="btn btn-ghost" id="btn-clear">Clear</button>
     </div>
   </div>
@@ -304,6 +330,7 @@
     <div class="field">
       <label class="label">One-line description</label>
       <input type="text" id="meta-pitch" placeholder="What is it, in one sentence?" autocomplete="off" />
+      <div class="ex-loaders" data-field="meta-pitch"></div>
     </div>
   </section>
 
@@ -319,30 +346,21 @@
       <label class="label">Who</label>
       <div class="label-hint">Title, company size, geography. The exact human who pulls out the credit card or signs the PO.</div>
       <textarea id="market-who" placeholder="e.g. Head of Product at a 50–200 person B2B SaaS company that ships weekly"></textarea>
-      <details class="tip"><summary>What good looks like</summary><div class="tip-body">
-        <div class="tip-line"><span class="tip-mark good">✓</span><span class="tip-text">"Head of Product at a 50–200 person B2B SaaS, US/EU, ships weekly, owns the changelog." — a real human you could picture.</span></div>
-        <div class="tip-line"><span class="tip-mark bad">✗</span><span class="tip-text">"Product teams at growing companies." — a category, not a person. Personas-by-committee fail this box.</span></div>
-      </div></details>
+      <div class="ex-loaders" data-field="market-who"></div>
     </div>
 
     <div class="field">
       <label class="label">Macro Problem</label>
       <div class="label-hint">The systemic "why it matters" — the big problem the micro problem sits inside.</div>
       <textarea id="market-macro" placeholder="e.g. SaaS companies ship constantly but fail to communicate the value they add — customers don't notice, and churn rises"></textarea>
-      <details class="tip"><summary>What good looks like</summary><div class="tip-body">
-        <div class="tip-line"><span class="tip-mark good">✓</span><span class="tip-text">"The electricity grid can't connect new generation fast enough." — systemic, important, gives the work meaning.</span></div>
-        <div class="tip-line"><span class="tip-mark bad">✗</span><span class="tip-text">"People don't like writing release notes." — that's a micro problem, not the macro. Zoom out.</span></div>
-      </div></details>
+      <div class="ex-loaders" data-field="market-macro"></div>
     </div>
 
     <div class="field">
       <label class="label">Micro Problem</label>
       <div class="label-hint">The specific, addressable bottleneck inside the macro problem. You solve the macro by picking the right micro.</div>
       <textarea id="market-micro" placeholder="e.g. Release notes are a manual Friday-afternoon chore the product lead does badly, or skips"></textarea>
-      <details class="tip"><summary>What good looks like</summary><div class="tip-body">
-        <div class="tip-line"><span class="tip-mark good">✓</span><span class="tip-text">"Transformer availability is the bottleneck stopping grid connections." — a specific, attackable wedge into the macro.</span></div>
-        <div class="tip-line"><span class="tip-mark bad">✗</span><span class="tip-text">"The grid is old." — still macro. The micro problem is the thing your product can actually grab hold of.</span></div>
-      </div></details>
+      <div class="ex-loaders" data-field="market-micro"></div>
     </div>
 
     <div class="field">
@@ -355,10 +373,7 @@
         <div class="chip" data-value="hair-on-fire">Hair on fire<span class="chip-detail">urgent, budgeted</span></div>
       </div>
       <textarea id="market-pain-detail" placeholder="Evidence the pain is real — what do they currently do about it, what does it cost them, is there budget?"></textarea>
-      <details class="tip"><summary>What good looks like</summary><div class="tip-body">
-        <div class="tip-line"><span class="tip-mark good">✓</span><span class="tip-text">"Real pain: they currently pay a contractor 4 hrs/week to do this, or lose deals when it slips."</span></div>
-        <div class="tip-line"><span class="tip-mark bad">✗</span><span class="tip-text">"Hair on fire" with detail that's just "everyone agrees it's annoying." If there's no spend or workaround, it's a vitamin.</span></div>
-      </div></details>
+      <div class="ex-loaders" data-field="market-pain-detail"></div>
     </div>
 
     <div class="field">
@@ -370,6 +385,7 @@
         <div class="chip" data-value="paid">Paid<span class="chip-detail">money, security, savings</span></div>
       </div>
       <textarea id="market-motivation-detail" placeholder="Why does this individual care enough to act? Tie it to the chip you picked."></textarea>
+      <div class="ex-loaders" data-field="market-motivation-detail"></div>
     </div>
 
     <div class="field">
@@ -382,10 +398,7 @@
         <div class="chip" data-value="flat-retention">Flat retention curve<span class="chip-detail">the gold standard</span></div>
       </div>
       <textarea id="market-pmf-evidence" placeholder="The actual evidence — NPS score, feedback quotes, shape of the retention curve, % 'very disappointed' if it vanished"></textarea>
-      <details class="tip"><summary>What good looks like</summary><div class="tip-body">
-        <div class="tip-line"><span class="tip-mark good">✓</span><span class="tip-text">"Some retention: month-6 retention is 68% and flattening; 45% would be 'very disappointed' if it vanished."</span></div>
-        <div class="tip-line"><span class="tip-mark bad">✗</span><span class="tip-text">"Flat retention curve" with evidence that's only "users love it." A claimed phase with no data is just a hope.</span></div>
-      </div></details>
+      <div class="ex-loaders" data-field="market-pmf-evidence"></div>
     </div>
 
     <div class="coach-slot" id="coach-market"></div>
@@ -406,50 +419,39 @@
       <label class="label">Core Value Prop</label>
       <div class="label-hint">The concrete, realizable benefit. Not "beautiful" — something checkable, like "save 2.5 hours a day".</div>
       <textarea id="product-value" placeholder="e.g. Release notes write themselves — merged PRs become a polished changelog in 5 minutes"></textarea>
-      <details class="tip"><summary>What good looks like</summary><div class="tip-body">
-        <div class="tip-line"><span class="tip-mark good">✓</span><span class="tip-text">"Save 2.5 hours a day" / "the best Linux email client for those who need a Microsoft email client." Concrete, realizable.</span></div>
-        <div class="tip-line"><span class="tip-mark bad">✗</span><span class="tip-text">"A beautiful email client for mid-level managers." Beauty isn't a value you can realize — it's a nice-to-have.</span></div>
-      </div></details>
+      <div class="ex-loaders" data-field="product-value"></div>
     </div>
 
     <div class="field">
       <label class="label">Marketing Promise</label>
       <div class="label-hint">The actual promise you make in marketing — then pick whether it's a value promise or an emotional one.</div>
       <textarea id="product-promise" placeholder="e.g. 'Your changelog, written for you — connect your repo and publish in 5 minutes'"></textarea>
+      <div class="ex-loaders" data-field="product-promise"></div>
       <div class="chip-row" id="promise-chips" style="margin-top:12px;">
         <div class="chip" data-value="value">Value promise<span class="chip-detail">nuts-and-bolts — what a startup needs</span></div>
         <div class="chip" data-value="emotional">Emotional promise<span class="chip-detail">brand / feeling — mature-business marketing</span></div>
       </div>
-      <details class="tip"><summary>What good looks like</summary><div class="tip-body">
-        <div class="tip-line"><span class="tip-mark good">✓</span><span class="tip-text">Value promise: "Save 2.5 hours a day." A startup makes a literal, checkable claim.</span></div>
-        <div class="tip-line"><span class="tip-mark bad">✗</span><span class="tip-text">Emotional promise: "Step into the future." Fine for a mature brand; an early-stage company usually can't afford it — and you can't check it against the product.</span></div>
-      </div></details>
     </div>
 
     <div class="field">
       <label class="label">Features That Deliver The Promise</label>
       <div class="label-hint">The specific features — shipped today, not roadmap — that deliver the value prop and solve the micro problem. They must map back.</div>
       <textarea id="product-features" placeholder="e.g. GitHub integration, AI draft from PR titles + descriptions, one-click publish to a hosted changelog page"></textarea>
-      <details class="tip"><summary>What good looks like</summary><div class="tip-body">
-        <div class="tip-line"><span class="tip-mark good">✓</span><span class="tip-text">Each feature traces to the problem: "PR-to-draft generation" directly removes the manual writing the product lead hated.</span></div>
-        <div class="tip-line"><span class="tip-mark bad">✗</span><span class="tip-text">A promise of "5 minutes" but the feature list is half roadmap. If it's not shipped, it doesn't count.</span></div>
-      </div></details>
+      <div class="ex-loaders" data-field="product-features"></div>
     </div>
 
     <div class="field">
       <label class="label">Hook</label>
       <div class="label-hint">What pulls them in? Can it form a new habit, or replace an existing one?</div>
       <textarea id="product-hook" placeholder="e.g. The Friday 'your changelog is ready to review' nudge that becomes the team's ritual"></textarea>
+      <div class="ex-loaders" data-field="product-hook"></div>
     </div>
 
     <div class="field">
       <label class="label">Aha Moment</label>
       <div class="label-hint">The single, observable moment a user feels the value. If you can't name it precisely, that's the first thing to fix.</div>
       <textarea id="product-aha" placeholder="e.g. The first time they see a publish-ready changelog generated from their actual repo without writing a word"></textarea>
-      <details class="tip"><summary>What good looks like</summary><div class="tip-body">
-        <div class="tip-line"><span class="tip-mark good">✓</span><span class="tip-text">"The first time X happens" — a specific, observable event. Facebook's was "7 friends in 10 days."</span></div>
-        <div class="tip-line"><span class="tip-mark bad">✗</span><span class="tip-text">"When they realize the value." That's a feeling, not a moment. Name the event.</span></div>
-      </div></details>
+      <div class="ex-loaders" data-field="product-aha"></div>
     </div>
 
     <div class="field-row">
@@ -457,11 +459,13 @@
         <label class="label">Time to Value</label>
         <div class="label-hint">How fast from sign-up to Aha. Minutes, hours, days, weeks, months.</div>
         <input type="text" id="product-ttv" placeholder="e.g. Under 10 minutes" autocomplete="off" />
+        <div class="ex-loaders" data-field="product-ttv"></div>
       </div>
       <div class="field">
         <label class="label">Stickiness</label>
         <div class="label-hint">Why do they come back tomorrow? Network effect, lock-in, habit, switching cost.</div>
         <input type="text" id="product-stickiness" placeholder="e.g. The hosted changelog accumulates history — leaving loses the archive" autocomplete="off" />
+        <div class="ex-loaders" data-field="product-stickiness"></div>
       </div>
     </div>
 
@@ -469,10 +473,7 @@
       <label class="label">Onboarding — Treat It As A Separate Product</label>
       <div class="label-hint">Onboarding's only job is to drive users to the Aha. What's the path? What gets stripped to make it shorter?</div>
       <textarea id="product-onboarding" placeholder="e.g. Connect GitHub → pick a repo → see the draft → publish. No tour, no settings, no demo data."></textarea>
-      <details class="tip"><summary>What good looks like</summary><div class="tip-body">
-        <div class="tip-line"><span class="tip-mark good">✓</span><span class="tip-text">A ruthless path to Aha with everything non-essential stripped out.</span></div>
-        <div class="tip-line"><span class="tip-mark bad">✗</span><span class="tip-text">"Training, rollout, change management." That's treating onboarding as overhead, not as a product.</span></div>
-      </div></details>
+      <div class="ex-loaders" data-field="product-onboarding"></div>
     </div>
 
     <div class="coach-slot" id="coach-product"></div>
@@ -503,26 +504,20 @@
         <div class="chip" data-value="community">Community</div>
         <div class="chip" data-value="other">Other</div>
       </div>
-      <details class="tip"><summary>What good looks like</summary><div class="tip-body">
-        <div class="tip-line"><span class="tip-mark good">✓</span><span class="tip-text">One channel, chosen deliberately. Use the Bullseye Framework — start wide, run cheap tests, whittle to the one that works.</span></div>
-        <div class="tip-line"><span class="tip-mark bad">✗</span><span class="tip-text">"Social media" as a catch-all, or three channels because you can't decide. That usually means you don't yet know.</span></div>
-      </div></details>
     </div>
 
     <div class="field">
       <label class="label">Natural Fit</label>
       <div class="label-hint">Why is this THE channel? Why does the product lend itself to it naturally? Channels don't mold to products.</div>
       <textarea id="channel-fit" placeholder="e.g. Every Reflo-powered changelog page carries a 'powered by' link — the product's own output is the channel"></textarea>
+      <div class="ex-loaders" data-field="channel-fit"></div>
     </div>
 
     <div class="field">
       <label class="label">Audience Density</label>
       <div class="label-hint">What fraction of this channel's audience can actually realize value from the product? Density, not reach.</div>
       <textarea id="channel-density" placeholder="e.g. High — every viewer of a changelog page is a product person at a SaaS company, i.e. a potential buyer"></textarea>
-      <details class="tip"><summary>What good looks like</summary><div class="tip-body">
-        <div class="tip-line"><span class="tip-mark good">✓</span><span class="tip-text">"~1 in 3 of this channel's audience is a viable buyer." Tight, high-density.</span></div>
-        <div class="tip-line"><span class="tip-mark bad">✗</span><span class="tip-text">Hiri on the radio: maybe 1 in 10,000 listeners could ever get value. Huge reach, near-zero density — a terrible channel.</span></div>
-      </div></details>
+      <div class="ex-loaders" data-field="channel-density"></div>
     </div>
 
     <div class="field-row">
@@ -548,10 +543,12 @@
       <div class="field">
         <label class="label">CAC expectation</label>
         <input type="text" id="channel-cac" placeholder="e.g. ~$80 blended; $36 on paid backstop" autocomplete="off" />
+        <div class="ex-loaders" data-field="channel-cac"></div>
       </div>
       <div class="field">
         <label class="label">Secondary channels</label>
         <input type="text" id="channel-secondary" placeholder="e.g. Some SEO over time — not driving the first 1000 customers" autocomplete="off" />
+        <div class="ex-loaders" data-field="channel-secondary"></div>
       </div>
     </div>
 
@@ -585,6 +582,7 @@
         <label class="label">Business Model Pattern</label>
         <div class="label-hint">Subscription, freemium, transactional, marketplace, razor-and-blade, pay-per-use, revenue share, who-pays inversion…</div>
         <input type="text" id="model-pattern" placeholder="e.g. Freemium — free tier with 'powered by' branding, paid removes it + adds the in-app widget" autocomplete="off" />
+        <div class="ex-loaders" data-field="model-pattern"></div>
       </div>
       <div class="field">
         <label class="label">Sales motion</label>
@@ -604,11 +602,13 @@
       <label class="label">Model Innovation — Is The Model Itself The Bet?</label>
       <div class="label-hint">Sometimes the model is the innovation, not the product (Apple's telco-subsidised handset; Xerox per-page billing). If standard, say so — that's valid too.</div>
       <textarea id="model-innovation" placeholder="e.g. The free tier's public changelog page IS the acquisition channel — the model and the growth loop are the same thing"></textarea>
+      <div class="ex-loaders" data-field="model-innovation"></div>
     </div>
 
     <div class="field">
       <label class="label">ARPA / Pricing</label>
       <input type="text" id="model-arpa" placeholder="e.g. $1,200/year per company" autocomplete="off" />
+      <div class="ex-loaders" data-field="model-arpa"></div>
     </div>
 
     <div class="field">
@@ -626,26 +626,26 @@
       <label class="label">Value Quantification</label>
       <div class="label-hint">The value you add, in money where possible — $ saved or $ made per customer per year. Your price should be a fraction of this.</div>
       <textarea id="model-value-quant" placeholder="e.g. Saves a product lead ~2 hrs/week (~$5k/year) and reduces churn — priced at $1.2k, well under the value created"></textarea>
-      <details class="tip"><summary>What good looks like</summary><div class="tip-body">
-        <div class="tip-line"><span class="tip-mark good">✓</span><span class="tip-text">"Saves $5k/year of staff time; price is $1.2k — capturing ~24% of value created." A real number.</span></div>
-        <div class="tip-line"><span class="tip-mark bad">✗</span><span class="tip-text">"It saves time." Vague — if you can't quantify the value, you can't price to it.</span></div>
-      </div></details>
+      <div class="ex-loaders" data-field="model-value-quant"></div>
     </div>
 
     <div class="field">
       <label class="label">CAC Math — Back Of The Envelope</label>
       <div class="label-hint">Show the arithmetic. The channel must be repeatable and pay for itself.</div>
       <input type="text" id="model-cac-math" placeholder="e.g. $3 CPC × 1-in-12 conversion = $36 CAC; ARPU $1,200 → covered in the first month" autocomplete="off" />
+      <div class="ex-loaders" data-field="model-cac-math"></div>
     </div>
 
     <div class="field-row">
       <div class="field">
         <label class="label">Volume To A Meaningful Outcome</label>
         <input type="text" id="model-volume" placeholder="e.g. ~8,000 customers at $1.2k = ~$10M ARR" autocomplete="off" />
+        <div class="ex-loaders" data-field="model-volume"></div>
       </div>
       <div class="field">
         <label class="label">Unit Economics — ARPU vs CAC</label>
         <input type="text" id="model-unit" placeholder="e.g. ARPU $1.2k, CAC ~$80, LTV/CAC strong, payback ~1 month" autocomplete="off" />
+        <div class="ex-loaders" data-field="model-unit"></div>
       </div>
     </div>
 
@@ -730,6 +730,165 @@
 
   const STORAGE_KEY = 'four-fits-draft-v3';
 
+  // ===== Example loaders (weak / good / great) =====
+  const EXAMPLES = {
+    'meta-pitch': {
+      weak:'A fintech platform for the modern workforce.',
+      good:'Software that lets agencies pay all their freelancers in one monthly batch.',
+      great:'Cuts a creative agency\'s month-end freelancer payment run from a full day to ten minutes.'
+    },
+    'market-who': {
+      weak:'Startups and small businesses.',
+      good:'Operations lead at a 20–80 person creative agency who manages freelancer payments.',
+      great:'Finance lead at a 20–80 person creative agency in the US/UK who pays 15–40 freelancers a month, currently by hand across spreadsheets and bank portals.'
+    },
+    'market-macro': {
+      weak:'Paying people is hard.',
+      good:'Small agencies lose hours and goodwill to slow, error-prone freelancer payments.',
+      great:'The freelance economy is scaling faster than the back-office tooling for it — agencies that run on freelancers are stuck with payment processes built for full-time payroll.'
+    },
+    'market-micro': {
+      weak:'Paying people is annoying.',
+      good:'Month-end freelancer payment runs are manual, scattered across bank portals and spreadsheets.',
+      great:'The finance lead spends a full day each month reconciling freelancer invoices against contracts and keying payments one by one into three separate bank portals.'
+    },
+    'market-pain-detail': {
+      weak:'Everyone agrees it\'s annoying.',
+      good:'They lose about a day a month to it and occasionally pay late, which strains freelancer relationships.',
+      great:'A day a month of finance time (~$400), plus 2–3 late payments a quarter that have already cost them two freelancers. No tool budget yet, but the COO has asked for a fix.'
+    },
+    'market-motivation-detail': {
+      weak:'They want it to be easier.',
+      good:'The finance lead wants to stop being the bottleneck and look on top of the numbers.',
+      great:'Paid + Made: the COO wants the cost and risk gone; the finance lead wants to stop being blamed for late payments and to look in control at month-end.'
+    },
+    'market-pmf-evidence': {
+      weak:'Users say they like it.',
+      good:'12 paying agencies, most renewed after the first month, NPS around 60.',
+      great:'18 paying agencies; month-4 retention 80% and flattening; 50% say they\'d be "very disappointed" without it; referrals drive a third of new signups.'
+    },
+    'product-value': {
+      weak:'A better way to pay freelancers.',
+      good:'Run your entire monthly freelancer payment in one batch, in minutes.',
+      great:'Turn a day of month-end freelancer payments into a 10-minute approve-and-send — invoices matched to contracts automatically.'
+    },
+    'product-promise': {
+      weak:'The future of payments.',
+      good:'Pay every freelancer in one click, at month-end.',
+      great:'Your month-end freelancer run, done in 10 minutes — upload the invoices, we match and pay.'
+    },
+    'product-features': {
+      weak:'Dashboard, payments, reporting.',
+      good:'Invoice inbox, auto-match to contracts, batch payment via one integration, status tracking.',
+      great:'Email-in invoice capture, automatic match to stored contract terms, one-batch payout across currencies, and a freelancer-facing status page — all shipped today.'
+    },
+    'product-hook': {
+      weak:'It\'s useful.',
+      good:'The month-end reminder that the payment run is ready to approve.',
+      great:'The 25th-of-the-month nudge — "your freelancer run is built and ready, approve to send" — which quietly becomes the finance lead\'s month-end ritual.'
+    },
+    'product-aha': {
+      weak:'When they see the value.',
+      good:'The first time a whole month\'s payments go out in one approval.',
+      great:'The first month-end where they upload the invoice batch, see every one auto-matched to a contract, and send the whole run with a single approval — the day\'s work gone.'
+    },
+    'product-ttv': {
+      weak:'Pretty quick.',
+      good:'About 15 minutes to first batch payment.',
+      great:'Under 15 minutes — connect the bank, forward one invoice, see it matched, send a test payment.'
+    },
+    'product-stickiness': {
+      weak:'It\'s good, so they stay.',
+      good:'Contract terms and freelancer details accumulate in the system.',
+      great:'Every contract, rate and payment history lives here — leaving means rebuilding the whole freelancer ledger somewhere else.'
+    },
+    'product-onboarding': {
+      weak:'We onboard them with a demo and some training.',
+      good:'Connect bank, import freelancers, forward first invoice, send a test payment.',
+      great:'Four steps to Aha: connect the bank account, bulk-import freelancers from a CSV, forward one invoice to see the match, send a $1 test payment. No tour, no demo data.'
+    },
+    'channel-fit': {
+      weak:'We\'ll use social media and ads.',
+      good:'Bookkeepers who serve agencies refer their clients to us.',
+      great:'Agency-focused bookkeepers and fractional CFOs are the channel — they feel the pain on their clients\' behalf and refer to fix it; we built a one-click partner portal for the referral.'
+    },
+    'channel-density': {
+      weak:'Lots of people see our ads.',
+      good:'Most of an agency bookkeeper\'s client list is a potential customer.',
+      great:'Near-total density — a bookkeeper who serves creative agencies has a client roster where almost every name fits our buyer. Nothing wasted.'
+    },
+    'channel-cac': {
+      weak:'Not sure yet.',
+      good:'Around $150 per customer through partner referrals.',
+      great:'~$120 via partner referrals (a small revenue share), with a paid backstop at ~$400 — both well under first-year revenue.'
+    },
+    'channel-secondary': {
+      weak:'Everything else.',
+      good:'Some content and SEO on freelancer payment compliance over time.',
+      great:'SEO on "pay freelancers internationally" as a slow-build second channel — useful later, not driving the first 500 customers.'
+    },
+    'model-pattern': {
+      weak:'Subscription, probably.',
+      good:'Monthly SaaS subscription, priced per active freelancer.',
+      great:'SaaS subscription tiered on monthly active freelancers, plus a small FX margin on cross-border payments — two revenue lines from one workflow.'
+    },
+    'model-innovation': {
+      weak:'Standard SaaS, nothing special.',
+      good:'We layer an FX margin on top of the subscription.',
+      great:'The bet is the partner-led model — bookkeepers refer and we revenue-share, so distribution cost scales with revenue instead of ahead of it. The model is the growth loop.'
+    },
+    'model-arpa': {
+      weak:'We\'ll figure out pricing.',
+      good:'About $2,400/year per agency.',
+      great:'$200/month base + $4 per active freelancer — roughly $2,400–$3,600/year per agency, plus ~0.5% FX margin.'
+    },
+    'model-value-quant': {
+      weak:'It saves time.',
+      good:'Saves about a day a month of finance time.',
+      great:'Saves ~$400/month of finance time and removes late-payment churn worth far more — priced at ~$250/month, capturing well under a third of the value created.'
+    },
+    'model-cac-math': {
+      weak:'Haven\'t done the math.',
+      good:'Partner referrals cost a 10% revenue share, so roughly $240 CAC.',
+      great:'Partner channel: 10% first-year revenue share = ~$240 CAC against $2,400 ARPU — recovered inside two months.'
+    },
+    'model-volume': {
+      weak:'Lots of agencies.',
+      good:'About 4,000 agencies at $2,400 = ~$10M ARR.',
+      great:'~4,000 paying agencies at $2,400 ARPA ≈ $10M ARR; a $100M outcome means moving up to larger agencies or adding adjacent back-office workflows — a deliberate rabbit-to-deer move.'
+    },
+    'model-unit': {
+      weak:'Should be profitable.',
+      good:'ARPU $2,400, CAC ~$240, payback in a couple of months.',
+      great:'ARPU $2,400, CAC ~$240, LTV/CAC ~8x at current retention, payback ~2 months — ARPU comfortably covers CAC.'
+    }
+  };
+
+  function populateExampleLoaders() {
+    document.querySelectorAll('.ex-loaders[data-field]').forEach(holder => {
+      const fieldId = holder.dataset.field;
+      const ex = EXAMPLES[fieldId];
+      if (!ex) return;
+      holder.innerHTML =
+        '<span class="ex-loaders-label">See an example:</span>' +
+        '<button type="button" class="ex-btn weak" data-field="' + fieldId + '" data-grade="weak">Weak</button>' +
+        '<button type="button" class="ex-btn good" data-field="' + fieldId + '" data-grade="good">Good</button>' +
+        '<button type="button" class="ex-btn great" data-field="' + fieldId + '" data-grade="great">Great</button>';
+    });
+    document.querySelectorAll('.ex-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const ex = EXAMPLES[btn.dataset.field];
+        if (!ex) return;
+        const el = document.getElementById(btn.dataset.field);
+        if (!el) return;
+        el.value = ex[btn.dataset.grade] || '';
+        persist();
+        const labels = { weak:'Weak', good:'Good', great:'Great' };
+        showToast(labels[btn.dataset.grade] + ' example loaded — edit it or replace it with yours');
+      });
+    });
+  }
+
   // ===== State read/write =====
   function getFieldValue(id) {
     if (id[0] === '@') return chipState[id.slice(1)] || '';
@@ -746,14 +905,11 @@
     const el = document.getElementById(id);
     if (el) el.value = val == null ? '' : val;
   }
-
   function buildPayload() {
     const out = {};
     for (const section in SCHEMA) {
       out[section] = {};
-      for (const key in SCHEMA[section]) {
-        out[section][key] = getFieldValue(SCHEMA[section][key]);
-      }
+      for (const key in SCHEMA[section]) out[section][key] = getFieldValue(SCHEMA[section][key]);
     }
     return out;
   }
@@ -766,22 +922,17 @@
       }
     }
   }
-
   function persist() {
     try { localStorage.setItem(STORAGE_KEY, JSON.stringify(buildPayload())); } catch (e) {}
   }
   function restore() {
-    try {
-      const raw = localStorage.getItem(STORAGE_KEY);
-      if (raw) applyPayload(JSON.parse(raw));
-    } catch (e) {}
+    try { const raw = localStorage.getItem(STORAGE_KEY); if (raw) applyPayload(JSON.parse(raw)); } catch (e) {}
   }
-
   function showToast(msg) {
     const t = document.getElementById('toast');
     t.textContent = msg;
     t.classList.add('show');
-    setTimeout(() => t.classList.remove('show'), 1600);
+    setTimeout(() => t.classList.remove('show'), 1800);
   }
 
   // ===== Chips =====
@@ -931,6 +1082,7 @@
     });
     CHIP_GROUPS.forEach(g => { chipState[g] = null; renderChipState(g); });
     persist(); clearAllCoachSlots(); document.getElementById('output').innerHTML = '';
+    resetIntake();
     showToast('Cleared');
   });
 
@@ -961,7 +1113,7 @@
   }
   window.addEventListener('scroll', updateActiveNav, { passive:true });
 
-  // ===== System prompt =====
+  // ===== System prompts =====
   const SYSTEM_FRAME = `You are a senior innovation coach running a Four Fits diagnostic. The founder has put real thought into this — your job is to help them see the system clearly and act on it, not to grade them. Honest about gaps, warm and constructive in tone. Coach, never berate.
 
 TONE
@@ -980,61 +1132,52 @@ FRAMEWORK CORE
 - Fits are interdependent. One weak element ripples through.
 
 DIAGNOSTIC LENS
-- PMF is phases, not binary: no data → early signal (good feedback, NPS >90) → some retention → flat retention curve (the gold standard). A claimed phase with no evidence is just a hope.
+- PMF is phases, not binary: no data -> early signal (good feedback, NPS >90) -> some retention -> flat retention curve (the gold standard). A claimed phase with no evidence is just a hope.
 - Two altitudes of problem: a macro problem (systemic "why it matters") and a micro problem (the specific addressable bottleneck). You solve the macro by picking the right micro.
 - Pain, not vitamins: a problem can be specific and still be a vitamin. If pain is claimed as "real" or "hair-on-fire" but there's no current spend, workaround, or cost, gently say so.
 - Realizable benefit: the value prop must be a concrete, realizable value ("save 2.5 hours a day"), not a nice-to-have ("a beautiful email client").
 - Two kinds of marketing: startups make nuts-and-bolts VALUE promises; emotional/brand promises are mature-business marketing and usually can't be afforded — or checked against the product — early on.
 - Value prop must be backed by features SHIPPED today, not roadmap.
-- Marketing is a promise; the product must let them realize it. Break the realization, break the chain — the user came for a value they couldn't get, and they leave.
-- Aha moment must be a single, observable event, precisely nameable. Onboarding is a separate product whose only job is driving users to Aha fast. Time to Value is critical — a long TTV with a fast promise is a credibility gap and the most common cause of cascading failure.
+- Marketing is a promise; the product must let them realize it. Break the realization, break the chain.
+- Aha moment must be a single, observable event, precisely nameable. Onboarding is a separate product whose only job is driving users to Aha fast. Time to Value is critical — a long TTV with a fast promise is the most common cause of cascading failure.
 - Power Law of Distribution: 70%+ of early acquisition comes from ONE channel. Three+ primary channels usually means the founder doesn't yet know. Recommend the Bullseye Framework.
-- Channel quality is DENSITY, not reach — what fraction of the channel's audience can realize the value. And the channel must reach the specific Who; a generic channel for a niche buyer (e.g. C-level execs, who have no concentrated venue) is a known failure.
+- Channel quality is DENSITY, not reach. The channel must reach the specific Who; a generic channel for a niche buyer (e.g. C-level execs, no concentrated venue) is a known failure.
 - Three channel tests: natural fit, scales naturally, affordable to run.
-- Channel↔Model: the channel must be repeatable and pay for itself. Look for back-of-envelope CAC math. ARPU must cover CAC over a reasonable payback window — the absolute floor. Low ARPU + high CAC is the danger zone.
+- Channel<>Model: the channel must be repeatable and pay for itself. Look for back-of-envelope CAC math. ARPU must cover CAC over a reasonable payback window — the absolute floor. Low ARPU + high CAC is the danger zone.
 - Janz animals: Mouse ($100 ARPA, needs virality), Rabbit ($1k, often goes upmarket past $10-20M ARR), Deer ($10k), Elephant ($100k, field sales), Whale ($1M, full enterprise org). Animal, sales motion and channel must all agree.
 - Model deserves serious scrutiny — don't let it be a throwaway box. Strategyzer catalogues dozens of patterns; sometimes the model IS the innovation (Apple's telco-subsidised handset; Xerox per-page billing).
-- Model↔Market: willingness AND ability to pay — does the segment want it, and can they afford it?
-- Pricing: ramp to the ceiling, price to capture the value added (a fraction of the quantified value), avoid commodity races to the bottom, aim for monopoly-like pricing power. If value isn't quantified, the founder can't price to it.
+- Model<>Market: willingness AND ability to pay.
+- Pricing: ramp to the ceiling, price to capture the value added, avoid commodity races to the bottom, aim for monopoly-like pricing power. If value isn't quantified, the founder can't price to it.
 
-THE CONNECTIONS — walk each of these and decide whether the two boxes line up:
-C1 Who → Macro/Micro problem: does this person actually have this problem? Is the micro a credible wedge into the macro?
-C2 Micro problem → Pain: genuinely painful with evidence, or a vitamin dressed up?
-C3 Problem → Value prop: does the value prop directly address the stated micro problem?
-C4 Value prop → Features that deliver: do SHIPPED features actually deliver the value prop and solve the problem?
-C5 Value prop → Marketing promise: is it a value promise, and does it match what the product delivers?
-C6 Value prop → Aha moment: is the Aha the moment the promised value is felt?
-C7 Aha → Time to Value → Onboarding: can onboarding get the user to Aha fast enough for the channel to work?
-C8 Who → Channel: does the channel reach this specific person, at density?
-C9 Product → Channel: does the product lend itself naturally to this channel? Does it scale? Is it affordable?
-C10 Channel CAC → Model ARPU: does revenue per customer cover acquisition cost, with the math shown?
-C11 Animal ↔ Motion ↔ Channel: do the animal, the sales motion and the channel all agree?
-C12 Model ARPA → Who's purchasing power: can this buyer actually afford this — willingness AND ability?
-C13 Value quantification → Pricing logic: is price set to capture a fraction of the quantified value, not anchored to commodities or competitors?
+THE CONNECTIONS — walk each and decide whether the two boxes line up:
+C1 Who -> Macro/Micro problem: does this person actually have this problem? Is the micro a credible wedge into the macro?
+C2 Micro problem -> Pain: genuinely painful with evidence, or a vitamin dressed up?
+C3 Problem -> Value prop: does the value prop directly address the stated micro problem?
+C4 Value prop -> Features that deliver: do SHIPPED features actually deliver the value prop and solve the problem?
+C5 Value prop -> Marketing promise: is it a value promise, and does it match what the product delivers?
+C6 Value prop -> Aha moment: is the Aha the moment the promised value is felt?
+C7 Aha -> Time to Value -> Onboarding: can onboarding get the user to Aha fast enough for the channel to work?
+C8 Who -> Channel: does the channel reach this specific person, at density?
+C9 Product -> Channel: does the product lend itself naturally to this channel? Does it scale? Is it affordable?
+C10 Channel CAC -> Model ARPU: does revenue per customer cover acquisition cost, with the math shown?
+C11 Animal <> Motion <> Channel: do the animal, the sales motion and the channel all agree?
+C12 Model ARPA -> Who's purchasing power: can this buyer actually afford this — willingness AND ability?
+C13 Value quantification -> Pricing logic: is price set to capture a fraction of the quantified value, not anchored to commodities or competitors?
 
 CASCADING PATTERNS (the most important thing to find)
-One upstream gap creating downstream pressure. The canonical one: long Time to Value kills self-serve and paid channels, forces high-touch sales, implies whale pricing, implies an enterprise sales motion that doesn't exist. Surface 1-3 of these, in coaching tone — name the upstream gap, trace the pressure, say where to intervene first.
+One upstream gap creating downstream pressure. The canonical one: long Time to Value kills self-serve and paid channels, forces high-touch sales, implies whale pricing, implies an enterprise sales motion that doesn't exist. Surface 1-3 of these, in coaching tone.
 
 OUTPUT — return ONLY this JSON object. No markdown fences, no prose outside it, no comments inside it, no literal newlines inside strings.
 {
-  "summary": {
-    "overall_status": "green|amber|red",
-    "fulfils_four_fits": true|false,
-    "headline": "<one warm but honest line, <=18 words>",
-    "body": "<3-4 sentences coaching tone, lead with what's working, <=60 words>"
-  },
+  "summary": { "overall_status": "green|amber|red", "fulfils_four_fits": true, "headline": "<one warm but honest line, <=18 words>", "body": "<3-4 sentences coaching tone, lead with what's working, <=60 words>" },
   "fits": {
     "market_product": { "status": "green|amber|red", "verdict": "<<=25 words>", "next_move": "<<=20 words, only if amber/red>" },
-    "product_channel": { "status": "...", "verdict": "...", "next_move": "..." },
-    "channel_model": { "status": "...", "verdict": "...", "next_move": "..." },
-    "model_market": { "status": "...", "verdict": "...", "next_move": "..." }
+    "product_channel": { "status": "green|amber|red", "verdict": "...", "next_move": "..." },
+    "channel_model": { "status": "green|amber|red", "verdict": "...", "next_move": "..." },
+    "model_market": { "status": "green|amber|red", "verdict": "...", "next_move": "..." }
   },
-  "boxes": [
-    { "card": "market|product|channel|model", "label": "<input field name>", "status": "green|amber|red", "comment": "<<=30 words, warm, specific, quote input where useful>", "next_move": "<<=20 words, only if amber/red>" }
-  ],
-  "connections": [
-    { "id": "C1..C13", "from": "<box>", "to": "<box>", "status": "green|amber|red", "comment": "<<=35 words: does this joint line up?>", "next_move": "<<=20 words, only if amber/red>" }
-  ],
+  "boxes": [ { "card": "market|product|channel|model", "label": "<input field name>", "status": "green|amber|red", "comment": "<<=30 words, warm, specific>", "next_move": "<<=20 words, only if amber/red>" } ],
+  "connections": [ { "id": "C1..C13", "from": "<box>", "to": "<box>", "status": "green|amber|red", "comment": "<<=35 words: does this joint line up?>", "next_move": "<<=20 words, only if amber/red>" } ],
   "cascades": [ "<<=60 words each, max 3>" ]
 }
 
@@ -1043,7 +1186,7 @@ RULES
 - fulfils_four_fits is the headline judgment: do all four fits align and the connections hold, or does the model need revisiting?
 - Every amber/red box, connection and fit needs a next_move. Greens don't.
 - Empty field: status amber, comment "Worth filling in — founders often discover something here." next_move: a question to surface it.
-- Cover every box. Cover every connection C1-C13 that's meaningfully judge-able from the input.
+- Cover every box. Cover every connection C1-C13 meaningfully judge-able from the input.
 - Output ONLY valid JSON. Begin with { and end with }.`;
 
   const COACH_CARD_FRAME = `You are the same Four Fits innovation coach. The founder is mid-way through filling the template and wants focused coaching on ONE card while they work. Use the same framework, lens, connections and tone.
@@ -1056,18 +1199,49 @@ Return ONLY this JSON (no fences, no prose outside it):
 }
 Only include connections that touch the requested card. Omit "fits" and "cascades". If other cards are still empty, don't penalise that — focus on the requested card and note where a connection can't yet be judged. Output ONLY valid JSON, begin with { end with }.`;
 
+  const GENERATE_FRAME = `You generate realistic, fully-filled Four Fits case studies for teaching. Invent a fictional but plausible early-stage startup in a randomly chosen sector (not email tools, not changelog tools, not freelancer payments — pick something else each time). Fill EVERY field with realistic content, including realistic imperfections — a real proposition is never perfect, so make at least one or two fits clearly weaker than the others so it's a useful teaching example.
+
+Return ONLY this JSON object (no fences, no prose outside it):
+{
+  "proposition": { "name": "<short brand name>", "stage": "idea|building|launched|scaling", "pitch": "<one sentence>" },
+  "market": { "who": "...", "macro_problem": "...", "micro_problem": "...", "pain_level": "vitamin|mild|real|hair-on-fire", "pain_detail": "...", "motivation_archetype": "laid|made|paid", "motivation_detail": "...", "pmf_phase": "none|early-signal|some-retention|flat-retention", "pmf_evidence": "..." },
+  "product": { "value_prop": "...", "marketing_promise": "...", "promise_type": "value|emotional", "features_that_deliver": "...", "hook": "...", "aha_moment": "...", "time_to_value": "...", "stickiness": "...", "onboarding": "..." },
+  "channel": { "primary": "viral-b2c|seo|paid|b2b-content|inside-sales|enterprise-sales|plg|partnerships|community|other", "natural_fit": "...", "audience_density": "...", "scales_naturally": "yes|partly|no", "cost_to_run": "low|medium|high", "cac_expectation": "...", "secondary": "..." },
+  "model": { "animal": "mouse|rabbit|deer|elephant|whale", "pattern": "...", "innovation": "...", "arpa": "...", "pricing_logic": "commodity-risk|competitor-anchored|value-capture|monopoly-like", "value_quantification": "...", "motion": "self-serve|plg-with-sales|inside-sales|field-sales|hybrid", "cac_math": "...", "volume_to_outcome": "...", "unit_economics": "..." }
+}
+Keep each string concise (1-2 sentences). Output ONLY valid JSON, begin with { end with }.`;
+
+  const INTAKE_FRAME = `You are a warm, sharp Four Fits innovation coach doing a CONVERSATIONAL intake. The founder is describing their idea in plain words. Your goal: through a short back-and-forth, get to a base level of understanding, then draft the structured Four Fits hypothesis cards for them.
+
+HOW TO RUN IT
+- Be warm and human. One short paragraph, not an essay.
+- If you don't yet have enough to draft meaningfully, ask 2-3 focused questions — never more — and set draft to null. Prioritise the gaps that matter most: who exactly the buyer is, the specific problem, how it makes money.
+- Once you have a base level of understanding (roughly: a specific buyer, a real problem, a rough sense of product and money), produce a draft: fill EVERY field you reasonably can, and for genuine unknowns put a short honest placeholder like "Not yet clear — worth deciding". Don't leave fields blank.
+- When you produce a draft, your reply should briefly say what you filled in confidently and what is still guesswork they should refine.
+- You can produce a draft and still note open questions. Don't drag the conversation out — 1 to 3 turns is plenty.
+
+Return ONLY this JSON (no fences, no prose outside it):
+{
+  "reply": "<your conversational message — questions, or a summary of the draft. 1 short paragraph.>",
+  "draft": null OR {
+    "proposition": { "name": "...", "stage": "idea|building|launched|scaling", "pitch": "..." },
+    "market": { "who": "...", "macro_problem": "...", "micro_problem": "...", "pain_level": "vitamin|mild|real|hair-on-fire", "pain_detail": "...", "motivation_archetype": "laid|made|paid", "motivation_detail": "...", "pmf_phase": "none|early-signal|some-retention|flat-retention", "pmf_evidence": "..." },
+    "product": { "value_prop": "...", "marketing_promise": "...", "promise_type": "value|emotional", "features_that_deliver": "...", "hook": "...", "aha_moment": "...", "time_to_value": "...", "stickiness": "...", "onboarding": "..." },
+    "channel": { "primary": "viral-b2c|seo|paid|b2b-content|inside-sales|enterprise-sales|plg|partnerships|community|other", "natural_fit": "...", "audience_density": "...", "scales_naturally": "yes|partly|no", "cost_to_run": "low|medium|high", "cac_expectation": "...", "secondary": "..." },
+    "model": { "animal": "mouse|rabbit|deer|elephant|whale", "pattern": "...", "innovation": "...", "arpa": "...", "pricing_logic": "commodity-risk|competitor-anchored|value-capture|monopoly-like", "value_quantification": "...", "motion": "self-serve|plg-with-sales|inside-sales|field-sales|hybrid", "cac_math": "...", "volume_to_outcome": "...", "unit_economics": "..." }
+  }
+}
+Output ONLY valid JSON, begin with { end with }.`;
+
   // ===== API plumbing =====
   function getApiEndpoint() {
     const m = document.querySelector('meta[name="four-fits-api"]');
     return (m && m.content ? m.content.trim() : '');
   }
-
   async function callAI(system, user) {
-    // Path A: Cowork
     if (window.cowork && typeof window.cowork.askClaude === 'function') {
       return await window.cowork.askClaude(system + '\n\n' + user, []);
     }
-    // Path B: Worker proxy
     const apiUrl = getApiEndpoint();
     if (apiUrl) {
       const res = await fetch(apiUrl, {
@@ -1081,25 +1255,22 @@ Only include connections that touch the requested card. Omit "fits" and "cascade
       const data = await res.json();
       return data.text || data.content || '';
     }
-    // Path C: no endpoint
     const err = new Error('NO_ENDPOINT');
     err.code = 'NO_ENDPOINT';
     throw err;
   }
-
   function parseAIResponse(raw) {
     if (!raw) throw new Error('Empty response from the AI.');
     const text = typeof raw === 'string' ? raw : (raw.text || JSON.stringify(raw));
-    let cleaned = text.trim().replace(/^\`\`\`(?:json)?\s*/i, '').replace(/\`\`\`\s*$/i, '');
+    let cleaned = text.trim().replace(/^[\`]{3}(?:json)?\s*/i, '').replace(/[\`]{3}\s*$/i, '');
     const start = cleaned.indexOf('{');
     const end = cleaned.lastIndexOf('}');
     if (start >= 0 && end > start) cleaned = cleaned.slice(start, end + 1);
     try { return JSON.parse(cleaned); } catch (e) {}
     const repaired = repairTruncatedJson(cleaned);
     if (repaired) { try { return JSON.parse(repaired); } catch (e) {} }
-    throw new Error('The AI response came back malformed — it may have been truncated. Try Run again.');
+    throw new Error('The AI response came back malformed — it may have been truncated. Try again.');
   }
-
   function repairTruncatedJson(s) {
     let depth = 0, inString = false, escape = false, lastSafe = -1;
     for (let i = 0; i < s.length; i++) {
@@ -1161,17 +1332,19 @@ Only include connections that touch the requested card. Omit "fits" and "cascade
     if (!nm) return '';
     return '<div class="' + (klass || 'field-verdict-next') + '"><span class="next-label">Next move →</span> ' + escapeHtml(nm) + '</div>';
   }
+  function showLoadingOutput() {
+    document.getElementById('output').innerHTML =
+      '<div class="card" data-fit="setup"><div class="card-stripe"></div><div class="loading"><div class="spinner"></div> Walking every box and every connection…</div></div>';
+  }
 
   // ===== Full analysis =====
   async function runAnalysis() {
     const btn = document.getElementById('btn-analyze');
     const out = document.getElementById('output');
     btn.disabled = true;
-    out.innerHTML = '<div class="card" data-fit="setup"><div class="card-stripe"></div><div class="loading"><div class="spinner"></div> Walking every box and every connection…</div></div>';
-
+    showLoadingOutput();
     const payload = buildPayload();
     const userPrompt = 'Run the full Four Fits diagnostic on this proposition. Walk every box and every connection. Return ONLY the JSON object.\n\nPROPOSITION INPUT:\n' + JSON.stringify(payload, null, 2);
-
     try {
       const raw = await callAI(SYSTEM_FRAME, userPrompt);
       renderFullAnalysis(parseAIResponse(raw));
@@ -1181,8 +1354,7 @@ Only include connections that touch the requested card. Omit "fits" and "cascade
         openModal(SYSTEM_FRAME + '\n\n' + userPrompt);
       } else {
         out.innerHTML = '<div class="card" data-fit="setup"><div class="card-stripe"></div><div class="error-box">' +
-          escapeHtml("Couldn't run the analysis: " + (err && err.message ? err.message : err)) +
-          '</div></div>';
+          escapeHtml("Couldn't run the analysis: " + (err && err.message ? err.message : err)) + '</div></div>';
         openModal(SYSTEM_FRAME + '\n\n' + userPrompt);
       }
     }
@@ -1193,7 +1365,6 @@ Only include connections that touch the requested card. Omit "fits" and "cascade
     const out = document.getElementById('output');
     if (!r) { out.innerHTML = ''; return; }
     let html = '';
-
     if (r.summary) {
       const cls = statusToClass(r.summary.overall_status);
       const fulfils = r.summary.fulfils_four_fits === true;
@@ -1207,7 +1378,6 @@ Only include connections that touch the requested card. Omit "fits" and "cascade
         '<div class="verdict-hero-body">' + escapeHtml(r.summary.body || '') + '</div>' +
       '</div>';
     }
-
     if (r.fits) {
       html += '<div class="section-head"><span class="section-head-num">01</span><span class="section-head-title">The four fits</span><span class="section-head-sub">— the joints between elements</span></div>';
       html += '<div class="verdict-row">';
@@ -1218,12 +1388,10 @@ Only include connections that touch the requested card. Omit "fits" and "cascade
           '<div class="verdict-tile-label">' + fitLabel(k) + '</div>' +
           '<div class="verdict-tile-status">' + escapeHtml(statusLabel(fit.status)) + '</div>' +
           '<div class="verdict-tile-detail">' + escapeHtml(fit.verdict || '') + '</div>' +
-          nextMoveHtml(fit.next_move, 'verdict-tile-next') +
-        '</div>';
+          nextMoveHtml(fit.next_move, 'verdict-tile-next') + '</div>';
       });
       html += '</div>';
     }
-
     if (r.boxes && r.boxes.length) {
       html += '<div class="section-head"><span class="section-head-num">02</span><span class="section-head-title">Box by box</span><span class="section-head-sub">— each field on its own merits</span></div>';
       ['market','product','channel','model'].forEach(card => {
@@ -1233,40 +1401,29 @@ Only include connections that touch the requested card. Omit "fits" and "cascade
         html += '<div class="box-grid">';
         boxes.forEach(b => {
           const cls = statusToClass(b.status);
-          html += '<div class="box-card">' +
-            '<div class="light ' + cls + '"></div>' +
-            '<div class="box-content">' +
-              '<div class="box-label">' + escapeHtml(b.label || '') + '</div>' +
-              '<div class="box-text">' + escapeHtml(b.comment || '') + '</div>' +
-              nextMoveHtml(b.next_move, 'field-verdict-next') +
-            '</div>' +
-          '</div>';
+          html += '<div class="box-card"><div class="light ' + cls + '"></div>' +
+            '<div class="box-content"><div class="box-label">' + escapeHtml(b.label || '') + '</div>' +
+            '<div class="box-text">' + escapeHtml(b.comment || '') + '</div>' +
+            nextMoveHtml(b.next_move, 'field-verdict-next') + '</div></div>';
         });
         html += '</div>';
       });
     }
-
     if (r.connections && r.connections.length) {
       html += '<div class="section-head"><span class="section-head-num">03</span><span class="section-head-title">The connections</span><span class="section-head-sub">— do the boxes relate to each other?</span></div>';
       html += '<div class="conn-card">';
       r.connections.forEach(c => {
         const cls = statusToClass(c.status);
-        html += '<div class="conn-item">' +
-          '<div class="conn-light ' + cls + '"></div>' +
-          '<div class="conn-body">' +
-            '<div class="conn-link"><span class="conn-id">' + escapeHtml(c.id || '') + '</span>' +
-              escapeHtml(c.from || '') + '<span class="conn-arrow">→</span>' + escapeHtml(c.to || '') + '</div>' +
-            '<div class="conn-text">' + escapeHtml(c.comment || '') + '</div>' +
-            nextMoveHtml(c.next_move, 'field-verdict-next') +
-          '</div>' +
-        '</div>';
+        html += '<div class="conn-item"><div class="conn-light ' + cls + '"></div>' +
+          '<div class="conn-body"><div class="conn-link"><span class="conn-id">' + escapeHtml(c.id || '') + '</span>' +
+          escapeHtml(c.from || '') + '<span class="conn-arrow">→</span>' + escapeHtml(c.to || '') + '</div>' +
+          '<div class="conn-text">' + escapeHtml(c.comment || '') + '</div>' +
+          nextMoveHtml(c.next_move, 'field-verdict-next') + '</div></div>';
       });
       html += '</div>';
     }
-
     if (r.cascades && r.cascades.length) {
-      html += '<div class="cascade-card">' +
-        '<div class="card-eyebrow">Cross-fit // Failure patterns</div>' +
+      html += '<div class="cascade-card"><div class="card-eyebrow">Cross-fit // Failure patterns</div>' +
         '<div class="cascade-title">Cascading breaks.</div>' +
         '<div class="cascade-sub">Where one weak field is creating pressure on fits two steps downstream.</div>';
       r.cascades.forEach((c, i) => {
@@ -1275,7 +1432,6 @@ Only include connections that touch the requested card. Omit "fits" and "cascade
       });
       html += '</div>';
     }
-
     out.innerHTML = html;
     out.scrollIntoView({ behavior:'smooth', block:'start' });
   }
@@ -1285,10 +1441,8 @@ Only include connections that touch the requested card. Omit "fits" and "cascade
     const slot = document.getElementById('coach-' + card);
     if (!slot) return;
     slot.innerHTML = '<div class="coach-panel"><div class="loading"><div class="spinner"></div> Coaching the ' + cardLabel(card) + ' card…</div></div>';
-
     const payload = buildPayload();
     const userPrompt = 'Coach the "' + card + '" card of this Four Fits proposition. The founder is still working — focus on this card and the connections touching it. Return ONLY the JSON object.\n\nPROPOSITION INPUT (all cards, for context):\n' + JSON.stringify(payload, null, 2);
-
     try {
       const raw = await callAI(COACH_CARD_FRAME, userPrompt);
       renderCoachPanel(card, parseAIResponse(raw));
@@ -1301,7 +1455,6 @@ Only include connections that touch the requested card. Omit "fits" and "cascade
       }
     }
   }
-
   function renderCoachPanel(card, r) {
     const slot = document.getElementById('coach-' + card);
     if (!slot || !r) { if (slot) slot.innerHTML = ''; return; }
@@ -1315,13 +1468,10 @@ Only include connections that touch the requested card. Omit "fits" and "cascade
       html += '<div class="box-grid">';
       r.boxes.forEach(b => {
         const cls = statusToClass(b.status);
-        html += '<div class="box-card">' +
-          '<div class="light ' + cls + '"></div>' +
-          '<div class="box-content">' +
-            '<div class="box-label">' + escapeHtml(b.label || '') + '</div>' +
-            '<div class="box-text">' + escapeHtml(b.comment || '') + '</div>' +
-            nextMoveHtml(b.next_move, 'field-verdict-next') +
-          '</div></div>';
+        html += '<div class="box-card"><div class="light ' + cls + '"></div>' +
+          '<div class="box-content"><div class="box-label">' + escapeHtml(b.label || '') + '</div>' +
+          '<div class="box-text">' + escapeHtml(b.comment || '') + '</div>' +
+          nextMoveHtml(b.next_move, 'field-verdict-next') + '</div></div>';
       });
       html += '</div>';
     }
@@ -1329,21 +1479,17 @@ Only include connections that touch the requested card. Omit "fits" and "cascade
       html += '<div class="conn-card" style="margin-top:14px;">';
       r.connections.forEach(c => {
         const cls = statusToClass(c.status);
-        html += '<div class="conn-item">' +
-          '<div class="conn-light ' + cls + '"></div>' +
-          '<div class="conn-body">' +
-            '<div class="conn-link"><span class="conn-id">' + escapeHtml(c.id || '') + '</span>' +
-              escapeHtml(c.from || '') + '<span class="conn-arrow">→</span>' + escapeHtml(c.to || '') + '</div>' +
-            '<div class="conn-text">' + escapeHtml(c.comment || '') + '</div>' +
-            nextMoveHtml(c.next_move, 'field-verdict-next') +
-          '</div></div>';
+        html += '<div class="conn-item"><div class="conn-light ' + cls + '"></div>' +
+          '<div class="conn-body"><div class="conn-link"><span class="conn-id">' + escapeHtml(c.id || '') + '</span>' +
+          escapeHtml(c.from || '') + '<span class="conn-arrow">→</span>' + escapeHtml(c.to || '') + '</div>' +
+          '<div class="conn-text">' + escapeHtml(c.comment || '') + '</div>' +
+          nextMoveHtml(c.next_move, 'field-verdict-next') + '</div></div>';
       });
       html += '</div>';
     }
     html += '</div>';
     slot.innerHTML = html;
   }
-
   document.querySelectorAll('.coach-btn').forEach(btn => {
     btn.addEventListener('click', async () => {
       btn.disabled = true;
@@ -1352,19 +1498,7 @@ Only include connections that touch the requested card. Omit "fits" and "cascade
     });
   });
 
-  // ===== Random case study generation =====
-  const GENERATE_FRAME = `You generate realistic, fully-filled Four Fits case studies for teaching. Invent a fictional but plausible early-stage startup in a randomly chosen sector (not email tools, not changelog tools — pick something else each time). Fill EVERY field with realistic content, including realistic imperfections — a real proposition is never perfect, so make at least one or two fits clearly weaker than the others so it's a useful teaching example.
-
-Return ONLY this JSON object (no fences, no prose outside it):
-{
-  "proposition": { "name": "<short brand name>", "stage": "idea|building|launched|scaling", "pitch": "<one sentence>" },
-  "market": { "who": "...", "macro_problem": "...", "micro_problem": "...", "pain_level": "vitamin|mild|real|hair-on-fire", "pain_detail": "...", "motivation_archetype": "laid|made|paid", "motivation_detail": "...", "pmf_phase": "none|early-signal|some-retention|flat-retention", "pmf_evidence": "..." },
-  "product": { "value_prop": "...", "marketing_promise": "...", "promise_type": "value|emotional", "features_that_deliver": "...", "hook": "...", "aha_moment": "...", "time_to_value": "...", "stickiness": "...", "onboarding": "..." },
-  "channel": { "primary": "viral-b2c|seo|paid|b2b-content|inside-sales|enterprise-sales|plg|partnerships|community|other", "natural_fit": "...", "audience_density": "...", "scales_naturally": "yes|partly|no", "cost_to_run": "low|medium|high", "cac_expectation": "...", "secondary": "..." },
-  "model": { "animal": "mouse|rabbit|deer|elephant|whale", "pattern": "...", "innovation": "...", "arpa": "...", "pricing_logic": "commodity-risk|competitor-anchored|value-capture|monopoly-like", "value_quantification": "...", "motion": "self-serve|plg-with-sales|inside-sales|field-sales|hybrid", "cac_math": "...", "volume_to_outcome": "...", "unit_economics": "..." }
-}
-Keep each string concise (1-2 sentences). Output ONLY valid JSON, begin with { end with }.`;
-
+  // ===== Random case study =====
   document.getElementById('btn-generate').addEventListener('click', async () => {
     const btn = document.getElementById('btn-generate');
     btn.disabled = true;
@@ -1372,22 +1506,107 @@ Keep each string concise (1-2 sentences). Output ONLY valid JSON, begin with { e
     btn.textContent = 'Generating…';
     try {
       const raw = await callAI(GENERATE_FRAME, 'Generate one random Four Fits case study now. Return ONLY the JSON object.');
-      const parsed = parseAIResponse(raw);
-      applyPayload(parsed);
+      applyPayload(parseAIResponse(raw));
       persist();
       clearAllCoachSlots();
       document.getElementById('output').innerHTML = '';
       document.getElementById('card-setup').scrollIntoView({ behavior:'smooth', block:'start' });
       showToast('Random case study generated — scroll through it');
     } catch (err) {
-      if (err && err.code === 'NO_ENDPOINT') {
-        showToast('Needs the AI endpoint — try the Hiri or Reflo examples instead');
-      } else {
-        showToast("Couldn't generate — " + (err && err.message ? err.message : err));
-      }
+      if (err && err.code === 'NO_ENDPOINT') showToast('Needs the AI endpoint — try the Hiri or Reflo examples instead');
+      else showToast("Couldn't generate — " + (err && err.message ? err.message : err));
     }
     btn.textContent = original;
     btn.disabled = false;
+  });
+
+  // ===== Conversational intake =====
+  const intakeHistory = [];
+  function resetIntake() {
+    intakeHistory.length = 0;
+    const thread = document.getElementById('intake-thread');
+    thread.innerHTML = '';
+    thread.style.display = 'none';
+    document.getElementById('intake-apply-slot').innerHTML = '';
+    document.getElementById('intake-input').value = '';
+  }
+  function renderIntakeThread() {
+    const thread = document.getElementById('intake-thread');
+    if (!intakeHistory.length) { thread.style.display = 'none'; return; }
+    thread.style.display = 'flex';
+    let html = '';
+    intakeHistory.forEach(m => {
+      if (m.role === 'user') {
+        html += '<div class="intake-msg user">' + escapeHtml(m.text) + '</div>';
+      } else {
+        html += '<div class="intake-msg coach"><div class="intake-msg-label">Coach</div>' + escapeHtml(m.text) + '</div>';
+      }
+    });
+    thread.innerHTML = html;
+  }
+  function buildIntakeUserPrompt(latest) {
+    let convo = '';
+    intakeHistory.forEach(m => { convo += (m.role === 'user' ? 'FOUNDER: ' : 'COACH: ') + m.text + '\n'; });
+    return 'Conversation so far:\n' + (convo || '(none yet)') + '\nLatest from the founder: ' + latest + '\n\nRespond per the JSON format.';
+  }
+
+  async function sendIntake() {
+    const input = document.getElementById('intake-input');
+    const btn = document.getElementById('intake-send');
+    const text = input.value.trim();
+    if (!text) { showToast('Tell me a little about the idea first'); return; }
+    btn.disabled = true;
+    const original = btn.innerHTML;
+    btn.innerHTML = 'Thinking…';
+
+    const userPrompt = buildIntakeUserPrompt(text);
+    intakeHistory.push({ role:'user', text:text });
+    renderIntakeThread();
+    input.value = '';
+    document.getElementById('intake-apply-slot').innerHTML =
+      '<div class="loading" style="margin-top:14px;"><div class="spinner"></div> The coach is thinking it through…</div>';
+
+    try {
+      const raw = await callAI(INTAKE_FRAME, userPrompt);
+      const r = parseAIResponse(raw);
+      intakeHistory.push({ role:'coach', text:(r.reply || 'Let me think about that.') });
+      renderIntakeThread();
+      const slot = document.getElementById('intake-apply-slot');
+      if (r.draft && typeof r.draft === 'object') {
+        window.__intakeDraft = r.draft;
+        slot.innerHTML =
+          '<div class="intake-apply">' +
+            '<div class="intake-apply-text">I\'ve drafted the four hypothesis cards from what you\'ve told me. Apply them to the form below, then refine — the example loaders and "Coach this card" buttons will help.</div>' +
+            '<button class="btn btn-success" id="intake-apply-btn">Apply to the form <span class="arrow">↓</span></button>' +
+          '</div>';
+        document.getElementById('intake-apply-btn').addEventListener('click', () => {
+          applyPayload(window.__intakeDraft);
+          persist();
+          clearAllCoachSlots();
+          document.getElementById('output').innerHTML = '';
+          document.getElementById('card-setup').scrollIntoView({ behavior:'smooth', block:'start' });
+          showToast('Draft applied — refine the cards, then run the analysis');
+        });
+      } else {
+        slot.innerHTML = '';
+      }
+    } catch (err) {
+      const slot = document.getElementById('intake-apply-slot');
+      if (err && err.code === 'NO_ENDPOINT') {
+        slot.innerHTML = '<div class="error-box" style="margin-top:14px;">The conversational intake needs the AI endpoint. You can still fill the cards below directly, or load a worked example.</div>';
+      } else {
+        slot.innerHTML = '<div class="error-box" style="margin-top:14px;">' +
+          escapeHtml("Couldn't reach the coach: " + (err && err.message ? err.message : err)) + '</div>';
+      }
+      intakeHistory.pop();
+      renderIntakeThread();
+    }
+    btn.innerHTML = original;
+    btn.disabled = false;
+  }
+  document.getElementById('intake-send').addEventListener('click', sendIntake);
+  document.getElementById('intake-input').addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' && (e.metaKey || e.ctrlKey)) { e.preventDefault(); sendIntake(); }
   });
 
   // ===== Modal =====
@@ -1417,6 +1636,7 @@ Keep each string concise (1-2 sentences). Output ONLY valid JSON, begin with { e
   document.getElementById('btn-analyze').addEventListener('click', runAnalysis);
 
   // ===== Init =====
+  populateExampleLoaders();
   restore();
   updateActiveNav();
 })();
